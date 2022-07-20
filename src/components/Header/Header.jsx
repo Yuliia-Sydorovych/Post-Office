@@ -5,7 +5,9 @@ const Header = () => {
 
     return (
         <div className={styles.header}>
-           Header
+            <div className={styles.header__title}>
+                THE POST OFFICE
+            </div>
         </div>
     );
 }

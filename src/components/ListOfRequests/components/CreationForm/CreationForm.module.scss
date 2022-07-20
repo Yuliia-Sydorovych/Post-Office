@@ -1,1 +1,60 @@
 @import '../../../../consts/variables.scss';
+
+.form {
+    width: 800px;
+    @extend %flex;
+
+    &__content {
+        width: 536px;
+        align-self: center;
+    }
+
+    &__cities, &__typeAndDate {
+        @include double;
+    }
+
+    &__typeAndDate {
+
+        select {
+            height: 30px;
+            width: 259px;
+        }
+
+        input {
+            width: 252px;
+            height: 26px;
+        }
+    }
+
+    &__description {
+
+        textarea {
+            margin-top: 10px;
+            height: 50px;
+            max-height: 50px;
+            min-height: 50px;
+            max-width: 525px; 
+            min-width: 525px;
+            font-family: 'Poppins', sans-serif;
+            padding: 5px;
+        }
+    }
+
+    &__create {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+
+        button {
+            margin-top: 7px;
+            width: 100px;
+            height: 30px;
+            @extend %button;
+        }
+    }
+
+    &__title {
+        margin-top: 10px;
+        @extend %fontTitle;
+    }
+}

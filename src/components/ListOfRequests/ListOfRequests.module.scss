@@ -3,5 +3,11 @@
 .list {
     height: auto;
     width: 100%;
-    background-color: silver;
+    @extend %flex;
+
+    &__title {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        @extend %fontTitle;
+    }
 }

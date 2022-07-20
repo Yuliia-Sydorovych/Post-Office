@@ -35,7 +35,7 @@ const Request = ({ parcel, removeParcel, editParcel }) => {
     
     return (
         <div key={parcel.id} className={styles.request}>
-            <div className={parcel.edit ? styles.request__edit : styles.request__normal}>
+            <div className={styles.request__content}>
                 <div>
                     From: {parcel.fromCity}
                 </div>
@@ -51,79 +51,90 @@ const Request = ({ parcel, removeParcel, editParcel }) => {
                 <div>
                     Description: {parcel.description}
                 </div>
-            </div>
-            <div>
-                <Button variant="outlined" onClick={handleClickOpen}>
-                    Edit
-                </Button>
-                <Dialog open={open} onClose={handleClose}>
-                    <DialogTitle>Subscribe</DialogTitle>
-                    <DialogContent>
-                        <DialogContentText>
-                            Enter the city from which the parcel is sent
-                        </DialogContentText>
-                        <TextField
-                            autoFocus
-                            margin='dense'
-                            id='cityFrom'
-                            label='City from'
-                            value={fromCityEdit}
-                            onChange={(e) => setFromCityEdit(e.currentTarget.value)}
-                            type='text'
-                            fullWidth
-                            variant='standard'
-                        />
-                        <TextField
-                            autoFocus
-                            margin='dense'
-                            id='cityTo'
-                            value={toCityEdit}
-                            onChange={(e) => setToCityEdit(e.currentTarget.value)}
-                            type='text'
-                            fullWidth
-                            variant='standard'
-                        />
-                        <InputLabel id='type'>Type</InputLabel>
-                        <Select
-                            labelId='type'
-                            id='type'
-                            value={typeEdit}
-                            onChange={(event: SelectChangeEvent) => setTypeEdit(event.currentTarget.value)}
-                            label='Type'
-                        >
-                            <MenuItem value={'gadgets'}>gadgets</MenuItem>
-                            <MenuItem value={'drinks'}>drinks</MenuItem>
-                            <MenuItem value={'clothes'}>clothes</MenuItem>
-                            <MenuItem value={'medicines'}>medicines</MenuItem>
-                            <MenuItem value={'other'}>other</MenuItem>
-                        </Select>
-                        <TextField
-                            autoFocus
-                            margin='dense'
-                            id='date'
-                            type='date'
-                            value={dateEdit}
-                            onChange={(e) => setDateEdit(e.currentTarget.value)}
-                            fullWidth
-                            variant='standard'
-                        />
-                        <TextField
-                            autoFocus
-                            margin='dense'
-                            id='description'
-                            value={descriptionEdit}
-                            onChange={(e) => setDescriptionEdit(e.currentTarget.value)}
-                            type='text'
-                            fullWidth
-                            variant='standard'
-                        />
-                    </DialogContent>
-                    <DialogActions>
-                        <Button onClick={handleClose}>Cancel</Button>
-                        <Button onClick={() => { removeParcel(parcel.id) }}>Delete</Button>
-                        <Button onClick={saveChanges}>Save</Button>
-                    </DialogActions>
-                </Dialog>
+                <div className={styles.request__edit}>
+                    <Button
+                        variant="outlined"
+                        onClick={handleClickOpen}
+                        sx={{ 
+                            color: 'black', 
+                            backgroundColor: 'rgb(240, 223, 223)', 
+                            border: '1px solid gray', 
+                            borderColor: 'gray', 
+                            borderRadius: '5px', 
+                            height: '30px' 
+                        }}
+                    >
+                        Edit
+                    </Button>
+                    <Dialog open={open} onClose={handleClose}>
+                        <DialogTitle>Subscribe</DialogTitle>
+                        <DialogContent>
+                            <DialogContentText>
+                                Enter the city from which the parcel is sent
+                            </DialogContentText>
+                            <TextField
+                                autoFocus
+                                margin='dense'
+                                id='cityFrom'
+                                label='City from'
+                                value={fromCityEdit}
+                                onChange={(e) => setFromCityEdit(e.currentTarget.value)}
+                                type='text'
+                                fullWidth
+                                variant='standard'
+                            />
+                            <TextField
+                                autoFocus
+                                margin='dense'
+                                id='cityTo'
+                                value={toCityEdit}
+                                onChange={(e) => setToCityEdit(e.currentTarget.value)}
+                                type='text'
+                                fullWidth
+                                variant='standard'
+                            />
+                            <InputLabel id='type'>Type</InputLabel>
+                            <Select
+                                labelId='type'
+                                id='type'
+                                value={typeEdit}
+                                onChange={(event: SelectChangeEvent) => setTypeEdit(event.currentTarget.value)}
+                                label='Type'
+                            >
+                                <MenuItem value={'gadgets'}>gadgets</MenuItem>
+                                <MenuItem value={'drinks'}>drinks</MenuItem>
+                                <MenuItem value={'clothes'}>clothes</MenuItem>
+                                <MenuItem value={'medicines'}>medicines</MenuItem>
+                                <MenuItem value={'other'}>other</MenuItem>
+                            </Select>
+                            <TextField
+                                autoFocus
+                                margin='dense'
+                                id='date'
+                                type='date'
+                                value={dateEdit}
+                                onChange={(e) => setDateEdit(e.currentTarget.value)}
+                                fullWidth
+                                variant='standard'
+                            />
+                            <TextField
+                                autoFocus
+                                margin='dense'
+                                id='description'
+                                value={descriptionEdit}
+                                onChange={(e) => setDescriptionEdit(e.currentTarget.value)}
+                                type='text'
+                                fullWidth
+                                variant='standard'
+                            />
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={handleClose}>Cancel</Button>
+                            <Button onClick={() => { removeParcel(parcel.id)}}>Delete</Button>
+                            <Button onClick={saveChanges}>Save</Button>
+                        </DialogActions>
+                    </Dialog>
+                </div>
             </div>
         </div>
     );

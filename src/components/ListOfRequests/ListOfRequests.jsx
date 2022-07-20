@@ -54,6 +54,9 @@ const ListOfRequests = () => {
     return (
         <div className={styles.list}>
             <CreationForm addParcel={addParcel} />
+            <div className={styles.list__title}>
+                List of requests
+            </div>
             {parcels.map((parcel) => {
                 return (
                     <Request
