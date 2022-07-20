@@ -4,7 +4,6 @@ import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -37,48 +36,45 @@ const Request = ({ parcel, removeParcel, editParcel }) => {
         <div key={parcel.id} className={styles.request}>
             <div className={styles.request__content}>
                 <div>
-                    From: {parcel.fromCity}
+                    <span>From:</span> {parcel.fromCity}
                 </div>
                 <div>
-                    To: {parcel.toCity}
+                    <span>To:</span> {parcel.toCity}
                 </div>
                 <div>
-                    Type: {parcel.type}
+                    <span>Type:</span> {parcel.type}
                 </div>
                 <div>
-                    Date: {parcel.date}
+                    <span>Date:</span> {parcel.date}
                 </div>
                 <div>
-                    Description: {parcel.description}
+                    <span>Description:</span> {parcel.description}
                 </div>
                 <div className={styles.request__edit}>
                     <Button
                         variant="outlined"
                         onClick={handleClickOpen}
                         sx={{ 
-                            color: 'black', 
                             backgroundColor: 'rgb(240, 223, 223)', 
                             border: '1px solid gray', 
                             borderColor: 'gray', 
                             borderRadius: '5px', 
-                            height: '30px' 
+                            height: '30px',
+                            color: 'black'
                         }}
                     >
                         Edit
                     </Button>
                     <Dialog open={open} onClose={handleClose}>
-                        <DialogTitle>Subscribe</DialogTitle>
+                        <DialogTitle>Edit information about parcel</DialogTitle>
                         <DialogContent>
-                            <DialogContentText>
-                                Enter the city from which the parcel is sent
-                            </DialogContentText>
                             <TextField
                                 autoFocus
                                 margin='dense'
                                 id='cityFrom'
-                                label='City from'
+                                label='From'
                                 value={fromCityEdit}
-                                onChange={(e) => setFromCityEdit(e.currentTarget.value)}
+                                onChange={(e) => setFromCityEdit(e.target.value)}
                                 type='text'
                                 fullWidth
                                 variant='standard'
@@ -87,19 +83,26 @@ const Request = ({ parcel, removeParcel, editParcel }) => {
                                 autoFocus
                                 margin='dense'
                                 id='cityTo'
+                                label='To'
                                 value={toCityEdit}
-                                onChange={(e) => setToCityEdit(e.currentTarget.value)}
+                                onChange={(e) => setToCityEdit(e.target.value)}
                                 type='text'
                                 fullWidth
                                 variant='standard'
                             />
-                            <InputLabel id='type'>Type</InputLabel>
+                            <InputLabel id='type' sx={{ fontSize:'12px' }}>Type</InputLabel>
                             <Select
                                 labelId='type'
-                                id='type'
-                                value={typeEdit}
-                                onChange={(event: SelectChangeEvent) => setTypeEdit(event.currentTarget.value)}
+                                id='typeField'
                                 label='Type'
+                                value={typeEdit}
+                                onChange={(event: SelectChangeEvent) => setTypeEdit(event.target.value)}
+                                sx={{ 
+                                    color: 'black',  
+                                    borderColor: 'gray', 
+                                    borderRadius: '5px', 
+                                    height: '30px' 
+                                }}
                             >
                                 <MenuItem value={'gadgets'}>gadgets</MenuItem>
                                 <MenuItem value={'drinks'}>drinks</MenuItem>
@@ -112,8 +115,9 @@ const Request = ({ parcel, removeParcel, editParcel }) => {
                                 margin='dense'
                                 id='date'
                                 type='date'
+                                label='Date'
                                 value={dateEdit}
-                                onChange={(e) => setDateEdit(e.currentTarget.value)}
+                                onChange={(e) => setDateEdit(e.target.value)}
                                 fullWidth
                                 variant='standard'
                             />
@@ -121,8 +125,9 @@ const Request = ({ parcel, removeParcel, editParcel }) => {
                                 autoFocus
                                 margin='dense'
                                 id='description'
+                                label='Description'
                                 value={descriptionEdit}
-                                onChange={(e) => setDescriptionEdit(e.currentTarget.value)}
+                                onChange={(e) => setDescriptionEdit(e.target.value)}
                                 type='text'
                                 fullWidth
                                 variant='standard'

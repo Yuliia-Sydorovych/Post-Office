@@ -58,3 +58,53 @@
         @extend %fontTitle;
     }
 }
+
+@media screen and (max-width:600px) {
+    .form {
+        width: 500px;
+    
+        &__content {
+            width: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        &__cities, &__typeAndDate {
+            
+            input, select {
+                width: 200px;
+            }
+        
+            input:first-child, select:first-child {
+                margin-right: 0;
+            }
+        }
+    
+        &__typeAndDate {
+    
+            select {
+                height: 31px;
+                width: 208px;
+            }
+    
+            input {
+                width: 203px;
+                height: 29px;
+            }
+        }
+    
+        &__description {
+    
+            textarea {
+                max-width: 195px; 
+                min-width: 195px;
+            }
+        }
+
+        &__title {
+            font-size: 16px;
+        }
+    }
+}

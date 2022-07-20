@@ -9,7 +9,17 @@
         font-size: 40px;
         font-weight: 700;
         height: 100%;
-        background-color: aliceblue;
+        background-color: rgb(240, 240, 240);
         @extend %flex;
     }
+}
+
+@media screen and (max-width:600px) {
+    .header {
+        height: 75px;
+
+        &__title {
+            font-size: 20px;
+        }
+    } 
 }

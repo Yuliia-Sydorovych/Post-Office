@@ -11,3 +11,12 @@
         @extend %fontTitle;
     }
 }
+
+@media screen and (max-width:600px) {
+    .list {
+        
+        &__title {
+            font-size: 16px;
+        }
+    }
+}
