@@ -30,7 +30,7 @@ const CreationForm = ({ addParcel }) => {
                         value={fromCity}
                         type='text' 
                         name='fromCity'
-                        onChange={(e)=>setFromCity(e.currentTarget.value)}
+                        onChange={(e)=>setFromCity(e.target.value)}
                         placeholder='Departing city'
                         required
                     />
@@ -38,7 +38,7 @@ const CreationForm = ({ addParcel }) => {
                         value={toCity}
                         type='text' 
                         name='toCity'
-                        onChange={(e)=>setToCity(e.currentTarget.value)}
+                        onChange={(e)=>setToCity(e.target.value)}
                         placeholder='Arrival city'
                         required
                     />
@@ -46,7 +46,7 @@ const CreationForm = ({ addParcel }) => {
                 <div className={styles.form__typeAndDate}>
                     <select
                         value={type}
-                        onChange={(e)=>setType(e.currentTarget.value)}
+                        onChange={(e)=>setType(e.target.value)}
                         required
                     >
                         <option>gadgets</option>
@@ -58,7 +58,8 @@ const CreationForm = ({ addParcel }) => {
                     <input
                         type='date'
                         value={date}
-                        onChange={(e)=>setDate(e.currentTarget.value)}
+                        min={new Date().toISOString().split("T")[0]}
+                        onChange={(e)=>setDate(e.target.value)}
                         required
                     />
                 </div>
@@ -67,7 +68,7 @@ const CreationForm = ({ addParcel }) => {
                         type='text'
                         value={description}
                         name='description'
-                        onChange={(e)=>setDescription(e.currentTarget.value)}
+                        onChange={(e)=>setDescription(e.target.value)}
                         placeholder='Enter description'
                         required
                     />

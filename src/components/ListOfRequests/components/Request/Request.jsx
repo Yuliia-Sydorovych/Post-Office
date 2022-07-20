@@ -7,7 +7,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 import styles from './Request.module.scss';
 
 const Request = ({ parcel, removeParcel, editParcel }) => {
@@ -52,7 +52,7 @@ const Request = ({ parcel, removeParcel, editParcel }) => {
                 </div>
                 <div className={styles.request__edit}>
                     <Button
-                        variant="outlined"
+                        variant='outlined'
                         onClick={handleClickOpen}
                         sx={{ 
                             backgroundColor: 'rgb(240, 223, 223)', 
@@ -96,7 +96,7 @@ const Request = ({ parcel, removeParcel, editParcel }) => {
                                 id='typeField'
                                 label='Type'
                                 value={typeEdit}
-                                onChange={(event: SelectChangeEvent) => setTypeEdit(event.target.value)}
+                                onChange={(e) => setTypeEdit(e.target.value)}
                                 sx={{ 
                                     color: 'black',  
                                     borderColor: 'gray', 
